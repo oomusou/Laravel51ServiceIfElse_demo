@@ -5,13 +5,15 @@ namespace App\MyBlog\Services;
 class OrderService
 {
     /**
-     * @param $qty
-     * @return float|int
+     * 計算折扣
+     *
+     * @param integer $qty
+     * @return float
      */
     public function getDiscount($qty)
     {
         if ($qty == 1) {
-            return 1;
+            return 1.0;
         } elseif ($qty == 2) {
             return 0.9;
         } elseif ($qty == 3) {
@@ -22,14 +24,14 @@ class OrderService
     }
 
     /**
-     * @param $qty
-     * @param $discount
-     * @return int
+     * 計算最後價錢
+     *
+     * @param integer $qty
+     * @param float $discount
+     * @return float
      */
     public function getTotal($qty, $discount)
     {
-        $total = 500 * $qty * $discount;
-        return $total;
+        return 500 * $qty * $discount;
     }
-
 }
